@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     bool IsGrounded()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, 1 << 8);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 1f, 1 << 8);
         if (hitInfo.collider != null)
         {
             if(_resetJump == false)
