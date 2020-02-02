@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-
-        
     }
 
     void Movement()

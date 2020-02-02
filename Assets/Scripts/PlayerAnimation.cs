@@ -6,8 +6,6 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -16,7 +14,5 @@ public class PlayerAnimation : MonoBehaviour
     public void Move(float move)
     {
         animator.SetFloat("Move",Mathf.Abs(move));
-
-
     }
 }
