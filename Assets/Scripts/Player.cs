@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
     private bool _grounded = false;
     private bool _resetJump = false;
     [SerializeField] float _playerSpeed = 5f;
-
+    private SpriteRenderer spriteRenderer;
+    private PlayerAnimation playerAnimation;
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        playerAnimation = GetComponent<PlayerAnimation>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -26,16 +29,32 @@ public class Player : MonoBehaviour
     void Movement()
     {
         float move = Input.GetAxisRaw("Horizontal");
-        _rigid.velocity = new Vector2(move*_playerSpeed, _rigid.velocity.y);
+        FlipSpriteWithMove(move);
+        PlayerJump();
+        _rigid.velocity = new Vector2(move * _playerSpeed, _rigid.velocity.y);
+        playerAnimation.Move(move);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space)&& IsGrounded())
+    private void PlayerJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            Debug.Log("JUMP");
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpForce);
             StartCoroutine(ResetJumpRoutine());
         }
     }
 
+    private void FlipSpriteWithMove(float move)
+    {
+        if (move > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (move < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+    }
 
     bool IsGrounded()
     {
