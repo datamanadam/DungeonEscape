@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
+
         float move = Input.GetAxisRaw("Horizontal");
+        _grounded = IsGrounded();
         FlipSpriteWithMove(move);
         PlayerJump();
         _rigid.velocity = new Vector2(move * _playerSpeed, _rigid.velocity.y);
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         {
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpForce);
             StartCoroutine(ResetJumpRoutine());
+            playerAnimation.Jump(true);
         }
     }
 
@@ -60,7 +63,9 @@ public class Player : MonoBehaviour
         if (hitInfo.collider != null)
         {
             if(_resetJump == false)
+
             {
+                playerAnimation.Jump(false);
                 return true;
             }
         }
@@ -71,7 +76,7 @@ public class Player : MonoBehaviour
     {
         _resetJump = true;
         yield return new WaitForSeconds(0.1f);
-        _resetJump = false;
+        _resetJump = false;  
     }
 
 
