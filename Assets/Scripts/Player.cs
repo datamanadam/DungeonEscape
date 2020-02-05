@@ -22,6 +22,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        Attack();
+    }
+
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0) && _grounded == true)
+        {
+            playerAnimation.PlayAttackAnimation();
+        }
     }
 
     void Movement()
@@ -79,7 +88,5 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _resetJump = false;  
     }
-
-
 
 }

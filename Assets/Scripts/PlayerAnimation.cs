@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+
     }
 
     public void Move(float move)
@@ -26,7 +27,11 @@ public class PlayerAnimation : MonoBehaviour
         {
             animator.SetBool("Jumping", false);
         }
-        
+    }
+
+    public void PlayAttackAnimation()
+    {
+        animator.SetTrigger("Attack");
     }
 
 
