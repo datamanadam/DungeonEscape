@@ -77,13 +77,10 @@ public class Player : MonoBehaviour
         else if (move < 0)
         {
             spriteRenderer.flipX = true;
-            //swordAcrSprite.flipX = true;
             swordAcrSprite.flipY = true;
             Vector3 newPos = swordAcrSprite.transform.localPosition;
             newPos.x = -1.01f;
             swordAcrSprite.transform.localPosition = newPos;
-
-            //swordSlashSprite.flipY = true;
         }
     }
 
