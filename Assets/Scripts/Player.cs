@@ -12,11 +12,20 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerAnimation playerAnimation;
 
+    private SpriteRenderer swordAcrSprite;
+
+
+
+    
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<PlayerAnimation>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        swordAcrSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
@@ -59,10 +68,22 @@ public class Player : MonoBehaviour
         if (move > 0)
         {
             spriteRenderer.flipX = false;
+            swordAcrSprite.flipX = false;
+            swordAcrSprite.flipY = false;
+            Vector3 newPos = swordAcrSprite.transform.localPosition;
+            newPos.x = 1.01f;
+            swordAcrSprite.transform.localPosition = newPos;
         }
         else if (move < 0)
         {
             spriteRenderer.flipX = true;
+            //swordAcrSprite.flipX = true;
+            swordAcrSprite.flipY = true;
+            Vector3 newPos = swordAcrSprite.transform.localPosition;
+            newPos.x = -1.01f;
+            swordAcrSprite.transform.localPosition = newPos;
+
+            //swordSlashSprite.flipY = true;
         }
     }
 

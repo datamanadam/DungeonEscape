@@ -6,9 +6,15 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
 
+    //reference to sword animation
+    private Animator swordAnimation;
+
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        swordAnimation = transform.GetChild(1).GetComponent<Animator>();
+
 
     }
 
@@ -32,6 +38,7 @@ public class PlayerAnimation : MonoBehaviour
     public void PlayAttackAnimation()
     {
         animator.SetTrigger("Attack");
+        swordAnimation.SetTrigger("SwordAnimation");
     }
 
 
