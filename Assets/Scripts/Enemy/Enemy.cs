@@ -13,7 +13,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("my name is " + this.gameObject.name);
+
     }
 
     public abstract void Update();
