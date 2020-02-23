@@ -18,12 +18,12 @@ public abstract class Enemy : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        currentTarget = pointA.position;
     }
 
     public void Start()
     {
-        Init();
-        currentTarget = pointA.position;
+        Init(); 
     }
 
     public virtual void Update()
