@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MossGiant : Enemy
+public class MossGiant : Enemy, IDamageable
 {
-    public int height;
+    public int Health { get; set; }
+
+
 
     public override void Init()
     {
         base.Init();
-        height = 20;
+        Health = base.health;
+
     }
 
+    public void Damage()
+    {
+
+    }
 }
