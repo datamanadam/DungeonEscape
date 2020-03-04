@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+
+    private bool canAttack = true;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("HIT" + other.name);
+        
 
         IDamageable hit = other.GetComponent<IDamageable>();
 
         if (hit!= null)
         {
-            hit.Damage();
+            if (canAttack)
+            {
+                hit.Damage();
+                Debug.Log("HIT" + other.name);
+                canAttack = false;
+                StartCoroutine(RestCanAttack());
+            }
         }
+
+        IEnumerator RestCanAttack()
+        {
+            yield return new WaitForSeconds(0.5f);
+            canAttack = true;
+        }
+
 
     }
 
