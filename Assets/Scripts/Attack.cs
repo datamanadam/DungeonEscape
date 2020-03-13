@@ -18,7 +18,7 @@ public class Attack : MonoBehaviour
             if (canAttack)
             {
                 hit.Damage();
-                Debug.Log("HIT" + other.name);
+                //Debug.Log("HIT" + other.name);
                 canAttack = false;
                 StartCoroutine(RestCanAttack());
             }

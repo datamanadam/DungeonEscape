@@ -19,7 +19,7 @@ public class Skeleton : Enemy, IDamageable
         float distance = Vector3.Distance(player.transform.localPosition, transform.position);
 
         Vector3 direction = player.transform.localPosition - transform.localPosition ;
-        Debug.Log("side: " + direction.x);
+        //Debug.Log("side: " + direction.x);
 
         if ( animator.GetBool("InCombat") == true)
         {

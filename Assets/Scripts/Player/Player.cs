@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IDamageable
 {
     private  Rigidbody2D _rigid;
     [SerializeField] float _jumpForce = 5f;
@@ -14,9 +14,7 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer swordAcrSprite;
 
-
-
-    
+    public int Health { get; set; }
 
     void Start()
     {
@@ -107,4 +105,8 @@ public class Player : MonoBehaviour
         _resetJump = false;  
     }
 
+    public void Damage()
+    {
+        Debug.Log("Damage Function Called");
+    }
 }
