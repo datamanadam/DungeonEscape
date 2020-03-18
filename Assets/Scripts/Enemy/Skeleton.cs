@@ -15,27 +15,11 @@ public class Skeleton : Enemy, IDamageable
     public override void Movement()
     {
         base.Movement();
-
-        float distance = Vector3.Distance(player.transform.localPosition, transform.position);
-
-        Vector3 direction = player.transform.localPosition - transform.localPosition ;
-        //Debug.Log("side: " + direction.x);
-
-        if ( animator.GetBool("InCombat") == true)
-        {
-            if (direction.x >= 0)
-            {
-                sprite.flipX = false;
-            }
-            else
-            {
-                sprite.flipX = true;
-            }
-        }
     }
 
     public void Damage()
     {
+        Debug.Log("Skeleton:Damage()");
         Health--;
         animator.SetTrigger("Hit");
         isHit = true;
@@ -45,6 +29,5 @@ public class Skeleton : Enemy, IDamageable
         {
             Destroy(gameObject);
         }
-
     }
 }
