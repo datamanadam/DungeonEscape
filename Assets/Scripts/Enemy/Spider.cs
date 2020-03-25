@@ -14,6 +14,11 @@ public class Spider : Enemy,IDamageable
         Health = health;
     }
 
+    public override void Update()
+    {
+        
+    }
+
     public void Damage()
     {
         Health--;
