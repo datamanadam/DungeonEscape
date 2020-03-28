@@ -34,6 +34,7 @@ public class MossGiant : Enemy, IDamageable
         {
             isDead = true;
             animator.SetTrigger("Death");
+            Instantiate(diamondPrefab, transform.position,Quaternion.identity);
         }
 
     }

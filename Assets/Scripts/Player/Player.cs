@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour,IDamageable
 {
+    public int playerDiamondAmount=0;
+
     private  Rigidbody2D _rigid;
     [SerializeField] float _jumpForce = 5f;
     private bool _grounded = false;
@@ -24,12 +26,14 @@ public class Player : MonoBehaviour,IDamageable
 
         swordAcrSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
 
+
     }
 
     void Update()
     {
         Movement();
         Attack();
+        Debug.Log(playerDiamondAmount);
     }
 
     private void Attack()
