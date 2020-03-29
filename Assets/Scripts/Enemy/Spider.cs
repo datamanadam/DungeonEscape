@@ -26,6 +26,9 @@ public class Spider : Enemy,IDamageable
         {
             isDead = true;
             animator.SetTrigger("Death");
+            animator.SetTrigger("Death");
+            Instantiate(diamondPrefab, transform.position, Quaternion.identity);
+            diamondPrefab.gems = gems;
         }
     }
 

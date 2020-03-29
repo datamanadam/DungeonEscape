@@ -5,7 +5,7 @@ using UnityEngine;
 public class Diamond : MonoBehaviour
 {
 
-    public int gems =1;
+    public int gems;
 
 
     private void OnTriggerEnter2D(Collider2D other)

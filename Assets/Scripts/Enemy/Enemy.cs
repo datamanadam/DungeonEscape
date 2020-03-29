@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public GameObject diamondPrefab;
+    public Diamond diamondPrefab;
 
     [SerializeField] protected int health;
     [SerializeField] protected float speed;
