@@ -21,14 +21,14 @@ public class Spider : Enemy,IDamageable
 
     public void Damage()
     {
+        if(isDead == true) { return; }
         Health--;
         if (Health <1)
         {
             isDead = true;
             animator.SetTrigger("Death");
-            animator.SetTrigger("Death");
-            Instantiate(diamondPrefab, transform.position, Quaternion.identity);
-            diamondPrefab.gems = gems;
+            GameObject diamond = Instantiate(diamondPrefab, transform.position, Quaternion.identity) as GameObject;
+            diamond.GetComponent<Diamond>().gems = base.gems;
         }
     }
 
