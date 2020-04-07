@@ -33,7 +33,6 @@ public class Player : MonoBehaviour,IDamageable
     {
         Movement();
         Attack();
-        Debug.Log(playerDiamondAmount);
     }
 
     private void Attack()
