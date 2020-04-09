@@ -75,6 +75,11 @@ public class ShopKeeper : MonoBehaviour
             }
             //shopPanel.SetActive(false);
             //Award Item if purchased only
+            if (currentItemSelected ==3)
+            {
+                GameManager.Instance.HasKeyToCastle = true;
+            }
+
             player.playerDiamondAmount= player.playerDiamondAmount - itemCost;
             UIManager.UInstance.playerGemCountText.text = (player.playerDiamondAmount + "G");
             Debug.Log("Player has purchased " + currentItemSelected + " For: " + itemCost);
