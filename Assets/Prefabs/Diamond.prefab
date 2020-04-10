@@ -81,7 +81,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!95 &6858842751784252863
 Animator:
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab98ebd7141e7be4ea6de5ae3741202a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gems: 1
 --- !u!50 &50450041356443362
 Rigidbody2D:
   serializedVersion: 4
