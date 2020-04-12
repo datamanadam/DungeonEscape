@@ -112,4 +112,10 @@ public class Player : MonoBehaviour,IDamageable
     {
         Debug.Log("Damage Function Called");
     }
+
+    public void AddGems(int amount)
+    {
+        playerDiamondAmount += amount;
+        UIManager.UInstance.UpdateGemCount(playerDiamondAmount);
+    }
 }
