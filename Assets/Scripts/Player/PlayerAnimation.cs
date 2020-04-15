@@ -41,5 +41,8 @@ public class PlayerAnimation : MonoBehaviour
         swordAnimation.SetTrigger("SwordAnimation");
     }
 
-
+    public void PlayPlayerDeath()
+    {
+        animator.SetTrigger("Death");
+    }
 }

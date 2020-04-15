@@ -16,23 +16,27 @@ public class Player : MonoBehaviour,IDamageable
 
     private SpriteRenderer swordAcrSprite;
 
-    public int Health { get; set; }
+    [SerializeField]public int Health { get; set; }
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<PlayerAnimation>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
         swordAcrSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        Health = 4;
 
 
     }
 
     void Update()
     {
-        Movement();
-        Attack();
+        if(Health > 0)
+        {
+            Movement();
+            Attack();
+        }
+
     }
 
     private void Attack()
@@ -110,7 +114,14 @@ public class Player : MonoBehaviour,IDamageable
 
     public void Damage()
     {
-        Debug.Log("Damage Function Called");
+        if (Health < 1) { return; }
+        Health --;
+        UIManager.UInstance.UpdateLives(Health);
+        if (Health <=0)
+        {
+            playerAnimation.PlayPlayerDeath();
+        }
+
     }
 
     public void AddGems(int amount)
