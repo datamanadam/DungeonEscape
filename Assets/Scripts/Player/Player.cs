@@ -42,7 +42,8 @@ public class Player : MonoBehaviour,IDamageable
 
     private void Attack()
     {
-        if ((Input.GetMouseButtonDown(0)||CrossPlatformInputManager.GetButtonDown("A_Button")) && _grounded == true)
+        //Input.GetMouseButtonDown(0) ||
+        if ((CrossPlatformInputManager.GetButtonDown("A_Button")) && _grounded == true)
         {
             playerAnimation.PlayAttackAnimation();
         }
