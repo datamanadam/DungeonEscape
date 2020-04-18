@@ -688,10 +688,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 726ba76d-6385-45c9-9fd1-868bb900a8a0
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Dungeon Escape 2
+  organizationId: adam-708806
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
