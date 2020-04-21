@@ -19,11 +19,17 @@ public class AdsManager : MonoBehaviour
 
     }
 
+
+
+
+
+
     void HandleShowResult(ShowResult result)
     {
         switch (result)
         {
             case ShowResult.Finished:
+                Debug.Log("Ads Completed Sucessfully");
                 break;
             case ShowResult.Skipped:
                 Debug.Log("You Skipped the Ad");

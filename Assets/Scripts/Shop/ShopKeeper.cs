@@ -78,11 +78,13 @@ public class ShopKeeper : MonoBehaviour
             if (currentItemSelected ==3)
             {
                 GameManager.Instance.HasKeyToCastle = true;
+                player.playerDiamondAmount = player.playerDiamondAmount - itemCost;
+                UIManager.UInstance.playerGemCountText.text = (player.playerDiamondAmount + "G");
+                UIManager.UInstance.UpdateGemCount(player.playerDiamondAmount);
+                Debug.Log("Player has purchased " + currentItemSelected + " For: " + itemCost);
             }
 
-            player.playerDiamondAmount= player.playerDiamondAmount - itemCost;
-            UIManager.UInstance.playerGemCountText.text = (player.playerDiamondAmount + "G");
-            Debug.Log("Player has purchased " + currentItemSelected + " For: " + itemCost);
+
         }
         else
         {
