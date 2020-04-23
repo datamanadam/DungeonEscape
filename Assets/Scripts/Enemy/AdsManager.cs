@@ -6,6 +6,9 @@ using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour
 {
 
+    public Player player;
+
+
     public void ShowRewardedAd()
     {
         if (Advertisement.IsReady("rewardedVideo"))
@@ -21,14 +24,13 @@ public class AdsManager : MonoBehaviour
 
 
 
-
-
-
     void HandleShowResult(ShowResult result)
     {
         switch (result)
         {
             case ShowResult.Finished:
+                GameManager.Instance.Player.AddGems(100);
+                UIManager.UInstance.OpenShop(GameManager.Instance.Player.playerDiamondAmount);
                 Debug.Log("Ads Completed Sucessfully");
                 break;
             case ShowResult.Skipped:
@@ -37,8 +39,6 @@ public class AdsManager : MonoBehaviour
             case ShowResult.Failed:
                 Debug.Log("AD FAILED");
                 break;
-
-
         }
     }
 
